@@ -3,11 +3,11 @@ import discord
 from bc import Blockchain
 import os
 
-TOKEN = 'NjUxMTIyNzkyMjE3MDUxMTQ3.XeVTkw.V314i8FKkT5HN8GNUw5ZFTbx7BI'
+TOKEN = 'NjUxMTIyNzkyMjE3MDUxMTQ3.Xepk9Q.Pk1WXox8e3UealSejAxhgERRgEE'
 
 client = discord.Client()
 bc = Blockchain()
-bc.add_advertiser('corpinc', 2000)
+bc.add_advertiser('corpinc', 2000, "myad")
 
 if (bc.blocks == []):
     bc.root()
@@ -41,7 +41,7 @@ async def on_message(message):
 
     if message.content.startswith('!AdBot show'):
         content = message.content[12:]
-        await message.channel.send(content+" has "+str(bc.users[content])+" CordCoins")
+        await message.channel.send(content+" has "+str(bc.users[content]['balance'])+" CordCoins")
 
     if message.content.startswith('!AdBot join'):
         status = bc.add_user(str(message.author))
@@ -51,10 +51,9 @@ async def on_message(message):
             await message.channel.send("You are already a member of CordCoin.")
 
     if str(message.author) == 'Prestoon#9786':
-
         if message.content.startswith('!AdBot create_advertiser'):
             content = message.content[25:].split()
-            status = bc.add_advertiser(content[0], int(content[1]))
+            status = bc.add_advertiser(content[0], int(content[1]), content[2])
             if status:
                 await message.channel.send("Created advertiser "+content[0]+" with "+content[1]+" CordCoins.")
             else:
@@ -70,7 +69,16 @@ async def on_message(message):
                 await message.channel.send("There was an error.")
 
         if message.content.startswith('!AdBot ad'):
-            await message.channel.send("This is an ad!")
+            ad = bc.credit(str(message.author))
+            await message.channel.send(ad)
+
+        if message.content.startswith('!AdBot remove_ad'):
+            content = message.content[17:]
+            status = bc.remove_ad(content)
+            if status:
+                await message.channel.send("Ad removed.")
+            else:
+                await message.channel.send("Sorry, that company does not exist.")
 
 @client.event
 async def on_ready():

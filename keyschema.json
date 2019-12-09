@@ -1,0 +1,10 @@
+[
+    {
+      "AttributeName": "name",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "adname",
+      "KeyType": "RANGE"
+    }
+]

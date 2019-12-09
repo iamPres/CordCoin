@@ -1,1 +1,1 @@
-{"corpinc": {"amount": 2000, "reserved": {}}, "comp": {"amount": 2000, "reserved": {}}}
+{"corpinc": {"amount": 2000, "reserved": {}, "ad": ""}, "comp": {"amount": 2000, "reserved": "", "ad": ""}, "test_ad": {"amount": 2000, "reserved": {"Prestoon#9786": 300}, "ad": "http://www.google.com"}, "corp_inc_123": {"amount": 30000, "reserved": {"Prestoon#9786": 5000}, "ad": "http://www.google.com"}, "corp_inc_124": {"amount": 20000, "reserved": {}, "ad": ""}}

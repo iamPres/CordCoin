@@ -1,0 +1,10 @@
+[
+    {
+        "AttributeName": "name",
+        "AttributeType": "S"
+    },
+    {
+        "AttributeName": "adname",
+        "AttributeType": "S"
+    }
+]

@@ -1,0 +1,78 @@
+<html>
+  <body onload="get_dims()">
+    <script>
+      function get_action() {
+        var object = {
+            'method': 'post',
+            'body': "{'name': document.getElementById('form1').value,'adname': document.getElementById('form2').value}"
+        };
+        var url="https://7sbk6kabq4.execute-api.us-east-2.amazonaws.com/default/ManageBlockChain/";
+        var response = fetch(url, object);
+        var json = response;
+        alert(json);
+      }
+
+      function get_dims() {
+        document.getElementById("form1").style.top = "300px"
+        document.getElementById("form2").style.top = "350px"
+        document.getElementById("form3").style.top = "400px"
+        document.getElementById("form4").style.top = "450px"
+
+        document.getElementById("form1").style.left = (screen.width /2) - 275 + "px"
+        document.getElementById("form2").style.left = (screen.width /2) - 275 + "px"
+        document.getElementById("form3").style.left = (screen.width /2) - 275 + "px"
+        document.getElementById("form4").style.left = (screen.width /2) - 275 + "px"
+
+        document.getElementById("submit").style.left = (screen.width /2) - 125 + "px"
+      }
+    </script>
+
+    <style>
+    body {
+      background-image: url('adform.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+    <style>
+      .form {
+        position: relative;
+        background-color: #DBCFCF;
+        width: 500;
+        height: 40px;
+        top: 0px;
+        left: -1000px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .button {
+        background-color: #DBCFCF;
+        position: relative;
+        width: 200px;
+        margin: 8px 0;
+        padding: 12px 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        height: 75px;
+        top: 500;
+        left: -1000px;
+        font-size: 24px;
+        color: #7e6396;
+        font-weight: bold;
+      }
+    </style>
+    <form onsubmit="get_action()">
+      <input id="form1" class="form" type="text" placeholder="Company Name"><br>
+      <input id="form2" class="form" type="text" placeholder="Advertisement Name"><br>
+      <input id="form3" class="form" type="text" placeholder="Advertisement Content"><br>
+      <input id="form4" class="form" type="text" placeholder="Payment"><br>
+      <input type="submit" id="submit" class="button">
+    </form>
+  </body>
+</html>

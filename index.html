@@ -1,0 +1,36 @@
+<html>
+  <body onload='get_dims()'>
+    <script>
+    function get_dims() {
+      document.getElementById("button").style.left = (screen.width / 2) - 300 + "px"
+      document.getElementById("button").style.top = (screen.height / 2) - 100 + "px"
+    }
+    function redirect(){
+      location.replace("/adform.html")
+    }
+    </script>
+
+
+    <style>
+    body {
+      background-image: url('home.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+    <style>
+    .square {
+      position: relative;
+      opacity: 0;
+      height: 250px;
+      width: 600px;
+      left: 0;
+      top: 0;
+    }
+    </style>
+
+    <button onclick="redirect()" id="button" class="square"></button>
+
+  </body>
+</html>
